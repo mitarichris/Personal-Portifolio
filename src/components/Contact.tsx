@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiMail, FiPhone, FiLinkedin, FiGithub, FiInstagram, FiMessageCircle } from 'react-icons/fi'
+import { FiMail, FiPhone, FiLinkedin, FiInstagram, FiMessageCircle, FiTwitter } from 'react-icons/fi'
 
 const contactInfo = [
   {
@@ -27,10 +27,10 @@ const contactInfo = [
     href: 'https://www.linkedin.com/in/mitari-murenzi-chris-358526324',
   },
   {
-    icon: FiGithub,
-    label: 'GitHub',
-    value: 'github.com/mitarichris',
-    href: 'https://github.com/mitarichris',
+    icon: FiTwitter,
+    label: 'X (Twitter)',
+    value: '@Mitarichris23',
+    href: 'https://x.com/Mitarichris23',
   },
   {
     icon: FiInstagram,
@@ -63,7 +63,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {contactInfo.map((item, i) => (
             <motion.a
               key={item.label}
@@ -74,12 +74,12 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex items-center gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-500 transition-all group"
+              className="flex items-center gap-4 p-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-500 transition-all group"
             >
-              <item.icon className="w-5 h-5 text-teal-600 group-hover:scale-110 transition-transform" />
-              <div className="text-sm">
-                <p className="text-gray-500 dark:text-gray-400 text-xs">{item.label}</p>
-                <p className="text-gray-800 dark:text-gray-200 font-medium truncate">{item.value}</p>
+              <item.icon className="w-6 h-6 text-teal-600 group-hover:scale-110 transition-transform flex-shrink-0" />
+              <div className="min-w-0">
+                <p className="text-gray-500 dark:text-gray-400 text-xs mb-0.5">{item.label}</p>
+                <p className="text-gray-800 dark:text-gray-200 font-medium break-words text-sm">{item.value}</p>
               </div>
             </motion.a>
           ))}
@@ -93,7 +93,7 @@ export default function Contact() {
           className="mt-12 text-center"
         >
           <a
-            href="mailto:mitarimurenzichris@gmail.com"
+            href="mailto:mitarimurenzichris@gmail.com?subject=Ideas%20%26%20Collaboration&body=Hi%20Mitari%2C%0A%0AI%20have%20an%20idea%20I'd%20love%20to%20share%20with%20you...%0A%0A"
             className="inline-flex items-center gap-2 px-8 py-3 bg-teal-600 text-white rounded-full font-medium hover:bg-teal-700 transition-colors"
           >
             <FiMail className="w-5 h-5" />
