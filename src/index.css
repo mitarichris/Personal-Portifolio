@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  @apply bg-white text-gray-900 transition-colors duration-300;
+}
+
+body:is(.dark *) {
+  @apply bg-gray-950 text-gray-100;
+}
+
+::selection {
+  background-color: #0d9488;
+  color: white;
+}
