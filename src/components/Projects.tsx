@@ -12,22 +12,23 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=600&h=400&fit=crop',
   },
   {
-    title: 'HR Management System',
+    title: 'School Hub',
     description:
-      'A human resources platform for managing employee records, attendance, leave requests, payroll, and performance reviews. Designed to streamline HR operations for organizations.',
-    tech: ['React', 'Express', 'MySQL', 'Tailwind CSS'],
-    github: 'https://github.com/mitarichris',
+      'A school management portal for managing student records, classes, attendance, grades, and announcements. Designed to connect administrators, teachers, and students on one unified platform.',
+    tech: ['TypeScript', 'React', 'Node.js', 'Express', 'GitHub Actions'],
+    github: 'https://github.com/mitarichris/school-portal',
     live: '#',
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop',
+    image: '/school-hub.jpg',
   },
   {
-    title: 'Fleet Management Solution',
+    title: 'Online Buying Ticket Platform',
     description:
-      'A fleet tracking and management system with vehicle scheduling, maintenance logs, fuel tracking, driver assignment, and real-time analytics to optimize fleet operations.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
-    github: 'https://github.com/mitarichris',
+      'A ticket booking platform where users can browse events, register, authenticate, and purchase tickets online. Built with Next.js and Prisma on a Neon PostgreSQL database.',
+    tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS'],
+    github: 'https://github.com/mitarichris/Online-Buying-Ticket-Platform',
     live: '#',
-    image: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&h=400&fit=crop',
+    image: '/ticket-platform.jpg',
+    fit: 'contain',
   },
 ]
 
@@ -57,11 +58,15 @@ export default function Projects() {
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden flex flex-col hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-500 transition-all"
             >
-              <div className="h-44 overflow-hidden">
+              <div className="h-64 overflow-hidden bg-gray-50 dark:bg-gray-700">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  style={{
+                    objectFit: (project as { fit?: string }).fit === 'contain' ? 'contain' : 'cover',
+                    objectPosition: (project as { fit?: string }).fit === 'contain' ? 'center' : undefined,
+                  }}
                   loading="lazy"
                 />
               </div>
