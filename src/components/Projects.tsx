@@ -28,7 +28,6 @@ const projects = [
     github: 'https://github.com/mitarichris/Online-Buying-Ticket-Platform',
     live: '#',
     image: '/ticket-platform.jpg',
-    fit: 'contain',
   },
 ]
 
@@ -58,15 +57,11 @@ export default function Projects() {
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden flex flex-col hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-500 transition-all"
             >
-              <div className="h-64 overflow-hidden bg-gray-50 dark:bg-gray-700">
+              <div className="h-[28rem] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  style={{
-                    objectFit: (project as { fit?: string }).fit === 'contain' ? 'contain' : 'cover',
-                    objectPosition: (project as { fit?: string }).fit === 'contain' ? 'center' : undefined,
-                  }}
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
