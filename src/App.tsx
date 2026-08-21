@@ -9,6 +9,7 @@ import Certifications from './components/Certifications'
 import Achievements from './components/Achievements'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import KimChat from './components/KimChat'
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -42,6 +43,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <KimChat />
     </>
   )
 }

@@ -5,9 +5,9 @@ const projects = [
   {
     title: 'Store Management System',
     description:
-      'A comprehensive store management solution featuring inventory tracking, sales processing, customer management, and reporting dashboards. Built with a modern tech stack for scalability and ease of use.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
-    github: 'https://github.com/mitarichris',
+      'A comprehensive store management solution featuring inventory tracking, sales processing, customer management, and reporting dashboards. Built with Laravel for robust backend logic and Blade templates for a clean UI.',
+    tech: ['Laravel', 'PHP', 'SQLite', 'Blade', 'Vite'],
+    github: 'https://github.com/mitarichris/store-management',
     live: '#',
     image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=600&h=400&fit=crop',
   },
