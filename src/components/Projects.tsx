@@ -7,8 +7,8 @@ const projects = [
     description:
       'A comprehensive store management solution featuring inventory tracking, sales processing, customer management, and reporting dashboards. Built with Laravel for robust backend logic and Blade templates for a clean UI.',
     tech: ['Laravel', 'PHP', 'SQLite', 'Blade', 'Vite'],
-    github: 'https://github.com/mitarichris/store-management',
-    live: '#',
+    github: 'https://github.com/mitarichris/Store-Management-System',
+    live: 'http://store-management-system.infinityfreeapp.com/login',
     image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=600&h=400&fit=crop',
   },
   {
