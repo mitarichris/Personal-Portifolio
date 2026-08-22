@@ -49,7 +49,7 @@ export default function Hero() {
           <img
             src="/profile.jpg"
             alt="Mitari Murenzi Chris"
-            className="w-40 h-40 md:w-56 md:h-56 rounded-full object-contain bg-gray-100 dark:bg-gray-800 border-4 border-teal-500 shadow-lg hover:border-teal-300 hover:shadow-teal-500/50 transition-all duration-300 cursor-pointer"
+            className="w-40 h-40 md:w-56 md:h-56 rounded-full object-contain border-4 border-teal-500 shadow-lg hover:border-teal-300 hover:shadow-teal-500/50 transition-all duration-300 cursor-pointer"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none'
             }}
