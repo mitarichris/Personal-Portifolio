@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiExternalLink } from 'react-icons/fi'
 
 const projects = [
   {
@@ -7,7 +7,6 @@ const projects = [
     description:
       'A comprehensive store management solution featuring inventory tracking, sales processing, customer management, and reporting dashboards. Built with Laravel for robust backend logic and Blade templates for a clean UI.',
     tech: ['Laravel', 'PHP', 'SQLite', 'Blade', 'Vite'],
-    github: 'https://github.com/mitarichris/Store-Management-System',
     live: 'https://store-management-system.infinityfreeapp.com/login',
     image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=600&h=400&fit=crop',
   },
@@ -16,7 +15,6 @@ const projects = [
     description:
       'A school management portal for managing student records, classes, attendance, grades, and announcements. Designed to connect administrators, teachers, and students on one unified platform.',
     tech: ['TypeScript', 'React', 'Node.js', 'Express', 'GitHub Actions'],
-    github: 'https://github.com/mitarichris/school-portal',
     live: '#',
     image: '/school-hub.jpg',
   },
@@ -25,7 +23,6 @@ const projects = [
     description:
       'A ticket booking platform where users can browse events, register, authenticate, and purchase tickets online. Built with Next.js and Prisma on a Neon PostgreSQL database.',
     tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS'],
-    github: 'https://github.com/mitarichris/Online-Buying-Ticket-Platform',
     live: '#',
     image: '/ticket-platform.jpg',
   },
@@ -83,15 +80,6 @@ export default function Projects() {
                 ))}
               </div>
               <div className="flex gap-3 mt-auto">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-teal-600 transition-colors"
-                >
-                  <FiGithub className="w-4 h-4" />
-                  Code
-                </a>
                 <a
                   href={project.live}
                   target="_blank"
