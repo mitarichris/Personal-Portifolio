@@ -11,7 +11,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=600&h=400&fit=crop',
   },
   {
-    title: 'School Hub',
+    title: 'Iga Hub',
     description:
       'A school management portal for managing student records, classes, attendance, grades, and announcements. Designed to connect administrators, teachers, and students on one unified platform.',
     tech: ['TypeScript', 'React', 'Node.js', 'Express', 'MongoDB'],
