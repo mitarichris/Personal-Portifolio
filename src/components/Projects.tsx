@@ -14,8 +14,8 @@ const projects = [
     title: 'School Hub',
     description:
       'A school management portal for managing student records, classes, attendance, grades, and announcements. Designed to connect administrators, teachers, and students on one unified platform.',
-    tech: ['TypeScript', 'React', 'Node.js', 'Express', 'GitHub Actions'],
-    live: '#',
+    tech: ['TypeScript', 'React', 'Node.js', 'Express', 'MongoDB'],
+    live: 'https://igahub.netlify.app',
     image: '/school-hub.jpg',
   },
   {
