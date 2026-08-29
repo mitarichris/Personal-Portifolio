@@ -23,7 +23,7 @@ const projects = [
     description:
       'A ticket booking platform where users can browse events, register, authenticate, and purchase tickets online. Built with Next.js and Prisma on a Neon PostgreSQL database.',
     tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS'],
-    live: '#',
+    live: 'https://online-buying-ticket-platform.vercel.app',
     image: '/ticket-platform.jpg',
   },
 ]
