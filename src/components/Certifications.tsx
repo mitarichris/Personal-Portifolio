@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiAward } from 'react-icons/fi'
+import { FiAward, FiCheck } from 'react-icons/fi'
 
 const certificationGroups = [
   {
@@ -36,38 +36,42 @@ const certificationGroups = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-            Certifications
-          </h2>
-          <div className="w-20 h-1 bg-teal-600 mx-auto mb-12 rounded-full" />
-        </motion.div>
+    <section id="certifications" className="relative py-16 sm:py-20 overflow-hidden">
+      <div className="absolute -left-32 bottom-20 w-[400px] h-[400px] rounded-full blur-[150px] bg-teal-500/10 pointer-events-none" />
 
-        <div className="space-y-8">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <span className="framer-glass-pill inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-mono uppercase tracking-widest text-teal-300">
+              <FiAward className="w-3.5 h-3.5" /> Certifications
+            </span>
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+              Credentials & Continuous Learning
+            </h2>
+            <p className="mt-3 text-slate-400 max-w-2xl">
+              International certificates across AI, Cloud, DevOps, and modern software practices.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4">
           {certificationGroups.map((group, i) => (
             <motion.div
               key={group.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: i * 0.15 }}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6"
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="framer-card rounded-[22px] p-6 bg-[#0e131f]"
             >
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                <FiAward className="text-teal-600" />
+              <h3 className="font-display font-bold text-base text-white mb-4 flex items-center gap-2">
+                <FiAward className="w-5 h-5 text-teal-400" />
                 {group.title}
               </h3>
-              <ul className="space-y-2">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5">
                 {group.certs.map((cert) => (
-                  <li key={cert} className="flex items-start gap-3 text-gray-600 dark:text-gray-300">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-500 flex-shrink-0" />
+                  <li key={cert} className="flex items-start gap-3 text-sm text-slate-400">
+                    <FiCheck className="w-4 h-4 text-teal-400 mt-0.5 flex-shrink-0" />
                     {cert}
                   </li>
                 ))}

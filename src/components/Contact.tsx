@@ -1,105 +1,180 @@
-import { motion } from 'framer-motion'
-import { FiMail, FiPhone, FiLinkedin, FiInstagram, FiMessageCircle, FiTwitter } from 'react-icons/fi'
+import { useState } from 'react'
+import { FiMail, FiPhone, FiMapPin, FiCopy, FiSend, FiMessageCircle } from 'react-icons/fi'
 
-const contactInfo = [
-  {
-    icon: FiMail,
-    label: 'Email',
-    value: 'mitarimurenzichris@gmail.com',
-    href: 'mailto:mitarimurenzichris@gmail.com',
-  },
-  {
-    icon: FiPhone,
-    label: 'Phone',
-    value: '+250 795 994 454',
-    href: 'tel:+250795994454',
-  },
-  {
-    icon: FiMessageCircle,
-    label: 'WhatsApp',
-    value: '0795994454',
-    href: 'https://wa.me/250795994454',
-  },
-  {
-    icon: FiLinkedin,
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/mitari-murenzi-chris-358526324',
-    href: 'https://www.linkedin.com/in/mitari-murenzi-chris-358526324',
-  },
-  {
-    icon: FiTwitter,
-    label: 'X (Twitter)',
-    value: '@Mitarichris23',
-    href: 'https://x.com/Mitarichris23',
-  },
-  {
-    icon: FiInstagram,
-    label: 'Instagram',
-    value: '@mitarichris',
-    href: 'https://instagram.com/mitarichris',
-  },
+const services = [
+  'Full-Stack Web Development',
+  'Business Management Systems',
+  'API Development',
+  'Database Design & Management',
+  'AI-Powered Solutions',
+  'Other / Not Sure',
 ]
 
+const email = 'mitarimurenzichris@gmail.com'
+const phone = '+250 795 994 454'
+const whatsapp = '250795994454'
+
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+  const [service, setService] = useState(services[0])
+  const [name, setName] = useState('')
+  const [emailField, setEmailField] = useState('')
+  const [message, setMessage] = useState('')
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+    } catch {
+      /* clipboard unavailable */
+    }
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2500)
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const text = encodeURIComponent(
+      `*New Portfolio Project Inquiry*\n\nName: ${name}\nEmail: ${emailField}\nService: ${service}\n\nMessage: ${message}`
+    )
+    window.open(`https://wa.me/${whatsapp}?text=${text}`, '_blank', 'noopener,noreferrer')
+  }
+
   return (
-    <section id="contact" className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-            Let's Build Something Amazing Together
-          </h2>
-          <div className="w-20 h-1 bg-teal-600 mx-auto mb-6 rounded-full" />
-          <p className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-            I am always open to collaborating on exciting projects, innovative ideas,
-            freelance opportunities, internships, and professional partnerships.
-            Whether you need a modern website, a business management system, a custom
-            web application, or an AI-powered solution, I am ready to help bring your
-            vision to life.
-          </p>
-        </motion.div>
+    <section id="contact" className="relative py-24 overflow-hidden">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full blur-[150px] bg-teal-500/10 pointer-events-none" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {contactInfo.map((item, i) => (
-            <motion.a
-              key={item.label}
-              href={item.href}
-              target={item.href.startsWith('http') ? '_blank' : undefined}
-              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex items-center gap-4 p-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-lg hover:border-teal-300 dark:hover:border-teal-500 transition-all group"
-            >
-              <item.icon className="w-6 h-6 text-teal-600 group-hover:scale-110 transition-transform flex-shrink-0" />
-              <div className="min-w-0">
-                <p className="text-gray-500 dark:text-gray-400 text-xs mb-0.5">{item.label}</p>
-                <p className="text-gray-800 dark:text-gray-200 font-medium break-words text-sm">{item.value}</p>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="framer-card rounded-[36px] p-8 sm:p-12 lg:p-16 bg-[#0e131f] grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-5">
+            <span className="framer-glass-pill inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-mono uppercase tracking-widest text-teal-300">
+              <FiSend className="w-3.5 h-3.5" /> Start a Conversation
+            </span>
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Let's Build Something Exceptional Together
+            </h2>
+            <p className="mt-3 text-slate-400 leading-relaxed">
+              I'm always open to collaborations, freelance projects, internships, and partnerships.
+              Tell me about your idea and I'll get back to you quickly.
+            </p>
+
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center gap-4">
+                <span className="w-11 h-11 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center flex-shrink-0">
+                  <FiMail className="w-5 h-5 text-teal-400" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs text-slate-500 font-mono uppercase tracking-wider">Email</p>
+                  <p className="text-sm text-slate-200 truncate">{email}</p>
+                </div>
+                <button
+                  onClick={copyEmail}
+                  className="framer-glass-pill p-2.5 rounded-full text-slate-300 hover:text-teal-300 transition-colors cursor-pointer"
+                  aria-label="Copy email"
+                >
+                  {copied ? <FiCopy className="w-4 h-4 text-teal-400" /> : <FiCopy className="w-4 h-4" />}
+                </button>
               </div>
-            </motion.a>
-          ))}
-        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 text-center"
-        >
-          <a
-            href="mailto:mitarimurenzichris@gmail.com?subject=Ideas%20%26%20Collaboration&body=Hi%20Mitari%2C%0A%0AI%20have%20an%20idea%20I'd%20love%20to%20share%20with%20you...%0A%0A"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-teal-600 text-white rounded-full font-medium hover:bg-teal-700 transition-colors"
-          >
-            <FiMail className="w-5 h-5" />
-            Send Me an Email
-          </a>
-        </motion.div>
+              <div className="flex items-center gap-4">
+                <span className="w-11 h-11 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center flex-shrink-0">
+                  <FiPhone className="w-5 h-5 text-teal-400" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs text-slate-500 font-mono uppercase tracking-wider">Phone / WhatsApp</p>
+                  <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-sm text-slate-200 hover:text-teal-300 transition-colors">
+                    {phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <span className="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                  <FiMapPin className="w-5 h-5 text-cyan-400" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs text-slate-500 font-mono uppercase tracking-wider">Location</p>
+                  <p className="text-sm text-slate-200">Kigali, Rwanda</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7">
+            <form onSubmit={handleSubmit} className="bg-[#0a0e17] rounded-[28px] p-6 sm:p-8">
+              <p className="font-mono text-[11px] uppercase tracking-wider text-slate-500 mb-4">
+                What service do you need?
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {services.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => setService(s)}
+                    className={`px-3.5 py-2 rounded-full text-xs transition-colors cursor-pointer ${
+                      service === s
+                        ? 'bg-gradient-to-r from-teal-500 via-emerald-400 to-cyan-400 text-slate-950 font-bold'
+                        : 'bg-white/5 border border-white/10 text-slate-300 hover:border-teal-500/40'
+                    }`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label htmlFor="name" className="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">
+                    Your Name
+                  </label>
+                  <input
+                    id="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-xl bg-[#121826] border border-white/10 text-sm text-slate-200 placeholder-slate-500 outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-email" className="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">
+                    Your Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    required
+                    value={emailField}
+                    onChange={(e) => setEmailField(e.target.value)}
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-3 rounded-xl bg-[#121826] border border-white/10 text-sm text-slate-200 placeholder-slate-500 outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="message" className="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell me about your project or idea..."
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-xl bg-[#121826] border border-white/10 text-sm text-slate-200 placeholder-slate-500 outline-none focus:ring-2 focus:ring-teal-500 resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-teal-500 via-emerald-400 to-cyan-400 text-slate-950 font-bold text-sm hover:opacity-90 transition-opacity cursor-pointer"
+              >
+                <FiMessageCircle className="w-4 h-4" /> Send Message via WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   )

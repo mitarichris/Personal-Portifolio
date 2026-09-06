@@ -189,7 +189,7 @@ export default function KimChat() {
     <>
       <motion.button
         onClick={() => setOpen(o => !o)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow-lg flex items-center justify-center transition-colors cursor-pointer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-r from-teal-500 via-emerald-400 to-cyan-400 text-slate-950 rounded-full shadow-lg shadow-teal-500/30 flex items-center justify-center transition-opacity cursor-pointer"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         aria-label="Chat with Kim"
@@ -212,10 +212,10 @@ export default function KimChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-96 bg-[#0f1420] border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
             style={{ maxHeight: '520px' }}
           >
-            <div className="bg-teal-600 px-4 py-3 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-teal-600 to-cyan-600 px-4 py-3 flex items-center gap-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white text-sm font-bold">
                 K
               </div>
@@ -225,14 +225,14 @@ export default function KimChat() {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ minHeight: '300px' }}>
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0a0e17]" style={{ minHeight: '300px' }}>
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
                       msg.from === 'user'
                         ? 'bg-teal-600 text-white rounded-br-md'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-md'
+                        : 'bg-[#1a2235] border border-white/5 text-slate-200 rounded-bl-md'
                     }`}
                   >
                     {msg.text}
@@ -241,7 +241,7 @@ export default function KimChat() {
               ))}
               {loading && (
                 <div className="flex justify-start">
-                  <div className="bg-gray-100 dark:bg-gray-700 rounded-2xl rounded-bl-md px-4 py-3">
+                  <div className="bg-[#1a2235] border border-white/5 rounded-2xl rounded-bl-md px-4 py-3">
                     <div className="flex gap-1">
                       <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
                       <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
@@ -253,19 +253,19 @@ export default function KimChat() {
               <div ref={bottomRef} />
             </div>
 
-            <div className="border-t border-gray-200 dark:border-gray-700 p-3 flex gap-2">
+            <div className="border-t border-white/10 p-3 flex gap-2 bg-[#0f1420]">
               <input
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask me anything..."
                 disabled={loading}
-                className="flex-1 px-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full outline-none focus:ring-2 focus:ring-teal-500 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 disabled:opacity-50"
+                className="flex-1 px-4 py-2 text-sm bg-[#121826] border border-white/10 rounded-full outline-none focus:ring-2 focus:ring-teal-500 text-slate-200 placeholder-slate-500 disabled:opacity-50"
               />
               <button
                 onClick={handleSend}
                 disabled={!input.trim() || loading}
-                className="w-9 h-9 bg-teal-600 hover:bg-teal-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
+                className="w-9 h-9 bg-teal-600 hover:bg-teal-700 disabled:bg-white/10 disabled:cursor-not-allowed text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />

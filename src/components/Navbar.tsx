@@ -1,58 +1,90 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiSun, FiMoon } from 'react-icons/fi'
+import { FiArrowUpRight, FiMenu, FiX } from 'react-icons/fi'
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Services', href: '#services' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Certifications', href: '#certifications' },
-  { label: 'Achievements', href: '#achievements' },
+  { label: 'Services', href: '#services' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Process', href: '#process' },
+  { label: 'Certs', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar({ toggleDark, dark }: { toggleDark: () => void; dark: boolean }) {
+export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+
+  useEffect(() => {
+    let last = window.scrollY
+    const onScroll = () => {
+      const y = window.scrollY
+      setHidden(y > last && y > 80)
+      last = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#hero" className="text-xl font-bold text-gray-900 dark:text-white">
-          MITARI<span className="text-teal-600">.DEV</span>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4 pb-2 transition-transform duration-300 ${
+        hidden ? '-translate-y-full' : 'translate-y-0'
+      }`}
+    >
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
+        <a href="#hero" className="framer-glass-pill flex items-center gap-3 rounded-full py-1.5 pl-1.5 pr-4">
+          <span className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-slate-950 font-bold text-sm">
+            M
+          </span>
+          <span className="leading-tight">
+            <span className="block font-display font-extrabold text-sm tracking-tight text-white">
+              MITARI<span className="text-teal-400">.</span>
+            </span>
+            <span className="block text-[10px] font-mono uppercase tracking-widest text-slate-500">
+              Software Studio
+            </span>
+          </span>
         </a>
 
-        <ul className="hidden md:flex gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="hover:text-teal-600 transition-colors"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <nav className="hidden md:block">
+          <ul className="framer-glass-pill flex items-center gap-1 rounded-full px-1.5 py-1.5">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="px-3 py-1.5 text-sm text-slate-300 hover:text-teal-400 transition-colors rounded-full"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={toggleDark}
-            className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Toggle dark mode"
+          <span className="hidden lg:flex framer-glass-pill items-center gap-2 rounded-full px-3 py-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
+            </span>
+            <span className="text-xs text-slate-300">Available for Hire</span>
+          </span>
+
+          <a
+            href="#contact"
+            className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-teal-500 via-emerald-400 to-cyan-400 text-slate-950 text-sm font-bold hover:opacity-90 transition-opacity"
           >
-            {dark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-          </button>
+            Get in Touch <FiArrowUpRight className="w-4 h-4" />
+          </a>
 
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden framer-glass-pill p-2.5 rounded-full text-white cursor-pointer"
             aria-label="Toggle menu"
           >
-            <span className={`block h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transition-all ${open ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transition-all ${open ? 'opacity-0' : ''}`} />
-            <span className={`block h-0.5 w-6 bg-gray-800 dark:bg-gray-200 transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+            {open ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -60,27 +92,34 @@ export default function Navbar({ toggleDark, dark }: { toggleDark: () => void; d
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="md:hidden mt-3 framer-glass rounded-3xl p-4"
           >
-            <ul className="flex flex-col gap-2 px-4 pb-4">
+            <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block py-2 text-gray-600 dark:text-gray-300 hover:text-teal-600 transition-colors"
+                    className="block px-4 py-3 text-sm text-slate-300 hover:text-teal-400 rounded-xl hover:bg-white/5 transition-colors"
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
             </ul>
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="mt-3 flex items-center justify-center gap-1.5 px-4 py-3 rounded-full bg-gradient-to-r from-teal-500 via-emerald-400 to-cyan-400 text-slate-950 text-sm font-bold"
+            >
+              Get in Touch <FiArrowUpRight className="w-4 h-4" />
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   )
 }
