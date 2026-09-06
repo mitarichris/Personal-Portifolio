@@ -190,11 +190,11 @@ export default function Hero() {
           >
             <div className="max-w-[340px] mx-auto">
               <div className="framer-card rounded-[32px] p-4 bg-gradient-to-b from-[#121826] to-[#0a0e17]">
-                <div className="relative rounded-3xl overflow-hidden">
+                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-[#121826] to-[#0a0e17]">
                   <img
                     src="/profile.jpg"
                     alt="Mitari Murenzi Chris"
-                    className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none'
                     }}
