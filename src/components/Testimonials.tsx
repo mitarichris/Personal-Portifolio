@@ -12,8 +12,8 @@ const testimonials = [
   {
     quote:
       'We needed a platform connecting staff, teachers, and students in one place. Chris turned a messy workflow into a simple, well-built product.',
-    name: 'Program Manager',
-    company: 'Education Organization',
+    name: 'School Director',
+    company: 'IgaHub System Owner',
   },
   {
     quote:
