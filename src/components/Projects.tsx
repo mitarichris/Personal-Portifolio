@@ -85,7 +85,7 @@ const projects: Project[] = [
       'Bilingual rental marketplace connecting renters with verified residential and commercial spaces — search, filters, favorites, and instant contact.',
     tech: ['React', 'Vite', 'JavaScript', 'CSS', 'RWF pricing'],
     live: 'https://my-shop-platform-nine.vercel.app/',
-    image: '/myrent-home.jpg',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
     caseStudy: {
       challenge:
         'Finding reliable rental spaces meant chasing scattered listings and agents, with no way to compare options in one place.',
