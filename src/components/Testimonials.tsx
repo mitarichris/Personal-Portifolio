@@ -20,6 +20,12 @@ const testimonials = [
     name: 'Founder',
     company: 'Startup',
   },
+  {
+    quote:
+      'Chris built the MyRent platform exactly the way I wanted — fast, fully responsive, and available in my language. Now customers can reach me directly from the site.',
+    name: 'Janvier Murenzi',
+    company: 'MyRent · Property Owner',
+  },
 ]
 
 export default function Testimonials() {
