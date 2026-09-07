@@ -18,8 +18,8 @@ const testimonials = [
   {
     quote:
       'From the first call to launch, everything was structured and thoughtful. The final app looks polished and performs fast on every device.',
-    name: 'Founder',
-    company: 'Startup',
+    name: 'Bryan Murenzi',
+    company: 'Online Buying Ticket Platform Owner',
   },
   {
     quote:
