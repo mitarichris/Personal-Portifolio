@@ -6,8 +6,8 @@ const testimonials = [
   {
     quote:
       'Chris delivered a clean, reliable system that our team actually enjoys using. Communication was clear and deadlines were always respected.',
-    name: 'Business Owner',
-    company: 'Retail & Store Management',
+    name: 'MARIZA Carmen',
+    company: 'Store Management System Owner',
   },
   {
     quote:
