@@ -28,7 +28,7 @@ const projects: Project[] = [
       'Comprehensive store management with inventory tracking, sales processing, customer management, and reporting dashboards.',
     tech: ['Laravel', 'PHP', 'SQLite', 'Blade', 'Vite'],
     live: 'https://store-management-system.infinityfreeapp.com/login',
-    image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=600&h=400&fit=crop',
+    image: '/store-system.jpg',
     caseStudy: {
       challenge:
         'Inventory, sales, and customer records were scattered across spreadsheets, making daily operations slow and error-prone.',
