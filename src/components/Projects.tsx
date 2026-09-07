@@ -76,6 +76,25 @@ const projects: Project[] = [
         'End-to-end digital booking reduced manual coordination and gave organizers real-time visibility.',
     },
   },
+  {
+    title: 'MyRent',
+    category: 'Business Systems',
+    year: '2026',
+    readTime: '3 min read',
+    description:
+      'Bilingual rental marketplace connecting renters with verified residential and commercial spaces — search, filters, favorites, and instant contact.',
+    tech: ['React', 'Vite', 'JavaScript', 'CSS', 'RWF pricing'],
+    live: 'https://my-shop-platform-nine.vercel.app/',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
+    caseStudy: {
+      challenge:
+        'Finding reliable rental spaces meant chasing scattered listings and agents, with no way to compare options in one place.',
+      solution:
+        'Built a responsive React + Vite app with categorized property listings, image galleries, search and filters, favorite tracking, and direct call/WhatsApp contact.',
+      impact:
+        'Renters can discover, compare, and contact owners instantly in one interface — fully responsive across mobile, tablet, and desktop.',
+    },
+  },
 ]
 
 const filters = ['All', 'Web App', 'Business Systems']
