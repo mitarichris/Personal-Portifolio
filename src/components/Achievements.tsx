@@ -6,7 +6,7 @@ const achievements = [
     icon: FiStar,
     title: 'First Lego League & AI Hackathon Competition',
     description:
-      'Successfully participated in the First Lego League and AI Hackathon Competition, demonstrating innovation, teamwork, and problem-solving skills. Earned a medal for outstanding participation and contribution.',
+      'Successfully participated in the First Lego League and AI Hackathon Competition, demonstrating innovation, teamwork, and problem-solving skills. Earned a medal for outstanding participation and contribution, and was awarded a laptop by H.E. President Paul Kagame in recognition of our outstanding contribution and commitment.',
     link: 'https://www.youtube.com/watch?v=QA1RGSEjOYs',
     linkLabel: 'Watch Video',
   },
